@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="613-dZ-5Rb">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="bVy-4Q-OMN">
+            <objects>
+                <viewController id="Zma-af-5Lw" customClass="MainViewController" customModule="GetImageFromNetwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JyT-vq-EOb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wQo-b7-lwS">
+                                <rect key="frame" x="16" y="280.5" width="343" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ea-xk-5fV">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
+                                        <color key="backgroundColor" red="0.1832703601" green="0.059369160849999998" blue="0.31912331630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="RPd-Ir-Gkk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Картинки собачек 🐶"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="imageButtons:" destination="Zma-af-5Lw" eventType="touchUpInside" id="x6v-5u-sQN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-wF-EJ0">
+                                        <rect key="frame" x="0.0" y="95" width="343" height="55"/>
+                                        <color key="backgroundColor" red="0.1832703601" green="0.059369160849999998" blue="0.31912331630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Картинки лисичек 🦊"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="imageButtons:" destination="Zma-af-5Lw" eventType="touchUpInside" id="f13-W1-C1z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UxF-wF-EJ0" firstAttribute="height" secondItem="5ea-xk-5fV" secondAttribute="height" id="dYW-ZL-BCV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EZu-d4-rDw"/>
+                        <color key="backgroundColor" red="0.039100218559999997" green="0.0077604204419999996" blue="0.064599744979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wQo-b7-lwS" firstAttribute="centerY" secondItem="EZu-d4-rDw" secondAttribute="centerY" id="Kyd-om-a3f"/>
+                            <constraint firstItem="EZu-d4-rDw" firstAttribute="trailing" secondItem="wQo-b7-lwS" secondAttribute="trailing" constant="16" id="RLt-yN-wu9"/>
+                            <constraint firstItem="wQo-b7-lwS" firstAttribute="leading" secondItem="EZu-d4-rDw" secondAttribute="leading" constant="16" id="bc4-Ae-Nrf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g9K-xE-QAd"/>
+                    <connections>
+                        <segue destination="cAJ-IO-1Ke" kind="show" identifier="next" id="p2d-To-Ogq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8V-uy-q3g" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2007.2" y="-27.436281859070466"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="rNI-4P-imp">
+            <objects>
+                <viewController id="cAJ-IO-1Ke" customClass="ImageViewController" customModule="GetImageFromNetwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g7s-1A-J8A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BdZ-Hs-BRY">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" red="0.039100218559999997" green="0.0077604204419999996" blue="0.064599744979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-Ox-5pb">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PEh-fk-sOy"/>
+                        <color key="backgroundColor" red="0.039100218559999997" green="0.0077604204419999996" blue="0.064599744979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PEh-fk-sOy" firstAttribute="bottom" secondItem="BdZ-Hs-BRY" secondAttribute="bottom" id="6lq-O6-hAd"/>
+                            <constraint firstItem="VHe-Ox-5pb" firstAttribute="centerX" secondItem="g7s-1A-J8A" secondAttribute="centerX" id="C4P-gi-DUM"/>
+                            <constraint firstItem="PEh-fk-sOy" firstAttribute="trailing" secondItem="BdZ-Hs-BRY" secondAttribute="trailing" id="VTh-JF-wKv"/>
+                            <constraint firstItem="VHe-Ox-5pb" firstAttribute="centerY" secondItem="g7s-1A-J8A" secondAttribute="centerY" id="hdb-xW-loM"/>
+                            <constraint firstItem="BdZ-Hs-BRY" firstAttribute="leading" secondItem="PEh-fk-sOy" secondAttribute="leading" id="k7l-LR-LTE"/>
+                            <constraint firstItem="BdZ-Hs-BRY" firstAttribute="top" secondItem="PEh-fk-sOy" secondAttribute="top" id="sbG-4E-J4K"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cu9-xT-xYF">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="MGL-sd-LWw">
+                                <connections>
+                                    <action selector="refreshButton:" destination="cAJ-IO-1Ke" id="iK8-bq-M9C"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="da1-3X-ruo">
+                                <connections>
+                                    <action selector="saveButton:" destination="cAJ-IO-1Ke" id="fkJ-kD-SYN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="VHe-Ox-5pb" id="yTj-B7-USP"/>
+                        <outlet property="imageView" destination="BdZ-Hs-BRY" id="at5-iB-Up2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gl6-Ax-ami" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2802" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Eb4-K3-GxK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="613-dZ-5Rb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Umt-Fl-GaF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zma-af-5Lw" kind="relationship" relationship="rootViewController" id="8ce-lv-QXZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nt0-b1-wdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="-27.436281859070466"/>
+        </scene>
+    </scenes>
+</document>
