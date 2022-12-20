@@ -35,6 +35,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="imageButtons:" destination="Zma-af-5Lw" eventType="touchUpInside" id="x6v-5u-sQN"/>
+                                            <segue destination="cAJ-IO-1Ke" kind="show" id="eGd-Mp-aUy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-wF-EJ0">
@@ -51,6 +52,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="imageButtons:" destination="Zma-af-5Lw" eventType="touchUpInside" id="f13-W1-C1z"/>
+                                            <segue destination="cAJ-IO-1Ke" kind="show" id="Enn-iu-lSq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -68,9 +70,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9K-xE-QAd"/>
-                    <connections>
-                        <segue destination="cAJ-IO-1Ke" kind="show" identifier="next" id="p2d-To-Ogq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8V-uy-q3g" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,4 +146,7 @@
             <point key="canvasLocation" x="1068" y="-27.436281859070466"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Enn-iu-lSq"/>
+    </inferredMetricsTieBreakers>
 </document>

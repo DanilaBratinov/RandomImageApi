@@ -6,19 +6,10 @@ class MainViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", image: nil, target: nil, action: nil)
     }
     
-    var animalType = ""
+    private var animalType: AnimalType = .dog
 
     @IBAction func imageButtons(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            animalType = "dog"
-        case 1:
-            animalType = "fox"
-        default:
-            break
-        }
-        
-        performSegue(withIdentifier: "next", sender: nil)
+        sender.tag == 0 ? (animalType = .dog) : (animalType = .fox)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

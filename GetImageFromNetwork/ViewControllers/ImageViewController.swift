@@ -1,8 +1,9 @@
 import UIKit
+import Alamofire
 
 class ImageViewController: UIViewController {
     
-    var animalType = ""
+    var animalType: AnimalType!
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -14,7 +15,7 @@ class ImageViewController: UIViewController {
         changeAnimalType()
         imageView.startAnimating()
     }
-
+    
     @IBAction func refreshButton(_ sender: UIBarButtonItem) {
         imageView.image = nil
         activityIndicator.startAnimating()
@@ -30,59 +31,52 @@ class ImageViewController: UIViewController {
     }
 }
 
+//MARK: - FetchImages
+
 extension ImageViewController {
-    private func changeAnimalType() {
-        switch animalType {
-        case "dog":
-            fetchDogImage()
-        case "fox":
-            fetchFoxImage()
-        default:
-            fetchDogImage()
-            print("Error")
-        }
-    }
-    
-    private func fetchDogImage() {
-        NetworkManager.shared.fetch(DogImage.self, from: Link.dogURL.rawValue) { [weak self] result in
-            switch result {
-            case .success(let data):
-                
-                print("Image: \(data.url ?? "nil"), size: \(data.fileSizeBytes ?? 0) bytes")
-                if data.url?.last == "g" || data.url?.last == "G" {
-                    self?.setImage(with: data.url ?? "")
-                } else {
-                    self?.fetchDogImage()
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    private func fetchFoxImage() {
-        NetworkManager.shared.fetch(FoxImage.self, from: Link.foxURL.rawValue) { [weak self] result in
-            switch result {
-            case .success(let data):
-                print("Image: \(data.image)")
-                self?.setImage(with: data.image)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    private func setImage(with url: String) {
-        NetworkManager.shared.fetchImage(from: url) { [weak self] result in
+    private func fetchImages(from url: String) {
+        NetworkManager.shared.fetchImages(from: url) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.imageView.image = UIImage(data: imageData)
-                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private func fetchDogImages() {
+        AF.request(Link.dogURL.rawValue)
+            .responseJSON { [weak self] dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let imageData = value as? [String: Any] else { return }
+                    let image = DogImage(imageData: imageData)
+                    self?.fetchImages(from: image.message)
+                    self?.activityIndicator.stopAnimating()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    private func fetchFoxImages() {
+        AF.request(Link.foxURL.rawValue)
+            .responseJSON { [weak self] dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let imageData = value as? [String: Any] else { return }
+                    let image = FoxImage.init(imageData: imageData)
+                    self?.fetchImages(from: image.image)
+                    self?.activityIndicator.stopAnimating()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    private func changeAnimalType() {
+        animalType == .dog ? fetchDogImages() : fetchFoxImages()
     }
 }
 
@@ -95,3 +89,4 @@ extension ImageViewController {
         present(alert, animated: true)
     }
 }
+
